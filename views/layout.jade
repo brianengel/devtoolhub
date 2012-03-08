@@ -1,0 +1,15 @@
+doctype html
+html(lang="en")
+    head
+        link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    body
+        .navbar.navbar-fixed.top
+            .navbar-inner
+                .container-fluid
+                    a.brand(href="#") ProjectName!
+        .container-fluid
+            .row-fluid
+                .span3
+                    include includes/navigation
+                .span9!= body
+        

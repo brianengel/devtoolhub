@@ -1,0 +1,15 @@
+.well.sidebar-nav
+    ul.nav.nav-list
+        each section in nav
+            li.nav-header= section.title
+            each link in section.links
+                if (link.active)
+                    li.active
+                        a(href=link.url)
+                            i.icon-white(class=link.icon)
+                            = link.title
+                else
+                    li
+                        a(href=link.url)
+                            i(class=link.icon)
+                            = link.title
