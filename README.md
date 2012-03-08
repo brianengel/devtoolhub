@@ -1,10 +1,7 @@
-#Test-Node
+#devtoolhub
 
 ### What's this for?
-It's my irst attempt at really using a lot of things including GitHub, Node.js, and Ubuntu! It's a learning experience for myself and hopefully someone will find it useful.
-
-### Packages
-
-* [jade](https://github.com/visionmedia/jade) - html templating
-* [express](https://github.com/visionmedia/express) - web framework
-* [node-inspector](https://github.com/dannycoates/node-inspector) - node debugging
+I got tired of looking around to try to find a decent set of tools for common
+problems that I run into everyday. The tools are either hard to use, hard to
+find or just not what i needed. I decided to build a quick website to solve
+these problems while attempting to learn node.js!
