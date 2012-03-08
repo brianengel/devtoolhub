@@ -13,8 +13,7 @@ function registerHome(application) {
     var controller = new homeController.HomeController();
     
     application.get('/', controller.index);
-    application.get('/home', controller.index);
-    application.get('/home/about', controller.about);
+    application.get('/about', controller.about);
 }
 
 exports.Router = Router;

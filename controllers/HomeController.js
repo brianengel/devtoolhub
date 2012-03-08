@@ -5,12 +5,20 @@ function HomeController() {
     
     this.index = function(req, res, next) {
         var navigationLinks = navBuilder.getNavigation(req.path);
-        res.render('home/index', { nav: navigationLinks });
+        res.render('home/index', 
+        { 
+            nav: navigationLinks,
+            navbar: "home"
+        });
     }
     
     this.about = function(req, res, next) {
         var navigationLinks = navBuilder.getNavigation(req.path);
-        res.render('home/about', { title : "About", nav: navigationLinks });
+        res.render('home/about', 
+        { 
+            nav: navigationLinks,
+            navbar: "about"
+        });
     }
 };
 

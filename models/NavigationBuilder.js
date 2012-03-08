@@ -11,7 +11,7 @@ function NavigationBuilder() {
                 },
                 {
                     "title": "About",
-                    "url": "/home/about",
+                    "url": "/about",
                     "icon": "icon-book"
                 }
             ]
