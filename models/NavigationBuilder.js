@@ -2,17 +2,26 @@ function NavigationBuilder() {
 
     var nav = [
         {
-            "title": "Section 1",
-            "links": [
+            title: "Section 1",
+            links: [
                 {
-                    "title": "Home",
-                    "url": "/",
-                    "icon": "icon-home"
+                    title: "Home",
+                    url: "/",
+                    icon: "icon-home"
                 },
                 {
-                    "title": "About",
-                    "url": "/about",
-                    "icon": "icon-book"
+                    title: "About",
+                    url: "/about",
+                    icon: "icon-book"
+                }
+            ]
+        },
+        {
+            title: "Tools",
+            links: [
+                {
+                    title: "Text tools",
+                    url: "/tools/text"
                 }
             ]
         }

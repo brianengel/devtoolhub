@@ -4,7 +4,8 @@
             a.brand(href="#") devtoolhub
             .nav-collapse
                 ul.nav
-                    li(class=navbar === "home" ? "active": "")
+                    - var highlight = typeof navbar !== "undefined" ? navbar : ""
+                    li(class=highlight === "home" ? "active": "")
                         a(href="/") Home
-                    li(class=navbar === "about" ? "active": "") 
+                    li(class=highlight === "about" ? "active": "") 
                         a(href="/about") About
