@@ -2,6 +2,11 @@ doctype html
 html(lang="en")
     head
         link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+        script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+        script(src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.1/underscore-min.js')
+        script(src='http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.1/backbone-min.js')
+        script(src='http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0.beta2/handlebars.min.js')
+        script(src='/js/main.js')
     body
         include includes/navbar
         .container-fluid
@@ -10,4 +15,10 @@ html(lang="en")
                     include includes/navigation
                 .span9!= body
         include includes/footer
-    
+
+        script(id="template-stat", type="text/html")
+            h4 Stats
+            ul.unstyled
+                li Characters: {{characterCount}}
+                li Words: {{wordCount}}
+                li Spaces: {{spaceCount}}

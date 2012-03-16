@@ -6,6 +6,7 @@ function ConfigurationManager(application) {
         application.use(express.bodyParser());
         application.use(express.methodOverride());
         application.set('view engine', 'jade');
+        //application.set('view options', {pretty: true})
         application.use(express.compiler({ src: __dirname + '/public', enable: ['less'] }));
         application.use(express.static(__dirname + '/public'));
     }
