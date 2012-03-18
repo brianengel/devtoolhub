@@ -21,4 +21,9 @@ html(lang="en")
             ul.unstyled
                 li Characters: {{characterCount}}
                 li Words: {{wordCount}}
-                li Spaces: {{spaceCount}}
+        script(id="template-editor", type="text/html")
+            #main-editor.row-fluid
+                .span9
+                    textarea(rows="12", style="width:100%;").editor
+                .span3
+                    .well.stats
