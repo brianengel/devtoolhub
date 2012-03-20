@@ -11,6 +11,14 @@ function ToolsController() {
         });
     }
 
+    this.json = function(req, res, next) {
+        var navigationLinks = navBuilder.getNavigation(req.path);
+        res.render('tools/json', 
+        { 
+            nav: navigationLinks
+        });
+    }
+
 
 }
 

@@ -20,6 +20,7 @@ function registerTools(application) {
 	var controller = new toolsController.ToolsController();
 
 	application.get('/tools/text', controller.text);
+	application.get('/tools/json', controller.json);
 }
 
 exports.Router = Router;

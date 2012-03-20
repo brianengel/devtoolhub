@@ -7,6 +7,10 @@ function NavigationBuilder() {
                 {
                     title: "Text Tools",
                     url: "/tools/text"
+                },
+                {
+                    title: "Json Validator",
+                    url: "/tools/json"
                 }
             ]
         }

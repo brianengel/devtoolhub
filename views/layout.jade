@@ -6,6 +6,7 @@ html(lang="en")
         script(src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.1/underscore-min.js')
         script(src='http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.1/backbone-min.js')
         script(src='http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0.beta2/handlebars.min.js')
+        script(src='/js/jsonlint.js')
         script(src='/js/main.js')
     body
         include includes/navbar
@@ -13,7 +14,7 @@ html(lang="en")
             .row-fluid
                 .span3
                     include includes/navigation
-                .span9!= body
+                #content.span9!= body
         include includes/footer
 
         script(id="template-stat", type="text/html")
@@ -27,3 +28,21 @@ html(lang="en")
                     textarea(rows="12", style="width:100%;").editor
                 .span3
                     .well.stats
+        script(id="template-json", type="text/html")
+            .row-fluid
+                .span12
+                    h1 Json Validator
+                    h6 Validate and Prettify.
+            .row-fluid
+                .span12
+                    textarea(rows="12", style="width:100%;").editor
+            .row-fluid
+                .span12
+                    #json-status
+                        h3 Valid state.
+            .row-fluid
+                .span12
+                    textarea(rows="12", style="width:100%;").editor-result
+        //script(id="template-json-editor", type="text/html")
+
+        //script(id="template-json-result, type="text/html")

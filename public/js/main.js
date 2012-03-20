@@ -43,6 +43,37 @@ $(function() {
         }
     });
 
+    var JsonModel = Backbone.Model.extend({
+        defaults: {
+            "rawJson": "",
+            "message": "",
+            "prettifiedJson": "",
+            "indentation": 4
+        },
+        initialize: function() {
+
+            function parseJson(json) {
+                var result = {
+                    message: "Valid JSON."
+                };
+
+                try {
+                    result.value = jsonlint.parse(json);
+                } catch(e) {
+                    result.message = e.message;
+                }
+            }
+
+            this.bind("change:rawJson", function() {
+                var result = parseJson(this.get("rawJson"));
+                this.set("message", result.message);
+                if(typeof result.value !== "undefined") {
+                    this.set("prettifiedJson", JSON.stringify(result.value, null, 4));
+                }
+            });
+        }
+    });
+
     // Define our views
     var StatBlock = Backbone.View.extend({
         render: function() {
@@ -56,6 +87,11 @@ $(function() {
     });
 
     var Editor = Backbone.View.extend({
+        initialize: function() {
+            if(typeof this.el !== "undefined"){
+                this.render();
+            }
+        },
         events: {
             "keyup .editor": "updateStats"
         },
@@ -75,6 +111,30 @@ $(function() {
         }
     });
 
-    var mainStatsView = new Editor({el: '#main-editor'});
-    mainStatsView.render();
+    var JsonPrettifier = Backbone.View.extend({
+        events: {
+            "keyup .editor": "prettifyResult"
+        },
+        prettifyResult: function() {
+            var editorField = $(this.el).find(".editor")[0];
+            var resultField = $(this.el).find(".editor-result")[0];
+            var statusMessage = $(this.el).find("#json-status")[0];
+
+            try {
+                var parsedResult = jsonlint.parse(editorField.value);
+                var prettifiedResult = JSON.stringify(parsedResult, null, 4);
+
+                resultField.value = prettifiedResult;
+                statusMessage.innerHTML = "Valid JSON.";
+            } catch(e) {
+                statusMessage.innerHTML = e.message;
+            }
+        },
+        render: function() {
+            return this;
+        }
+    });
+
+    new Editor({el: '#main-editor'});
+    new JsonPrettifier({el: '#json-content'});
 });
