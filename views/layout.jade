@@ -10,8 +10,8 @@ html(lang="en")
         script(src='/js/main.js')
     body
         include includes/navbar
-        .container-fluid
-            .row-fluid
+        .container
+            .row
                 .span3
                     include includes/navigation
                 #content.span9!= body
@@ -23,24 +23,23 @@ html(lang="en")
                 li Characters: {{characterCount}}
                 li Words: {{wordCount}}
         script(id="template-editor", type="text/html")
-            #main-editor.row-fluid
-                .span9
-                    textarea(rows="12", style="width:100%;").editor
-                .span3
+                .span7
+                    textarea(rows="12").span7.editor
+                .span2
                     .well.stats
         script(id="template-json", type="text/html")
-            .row-fluid
+            .row
                 .span12
                     h1 Json Validator
                     h6 Validate and Prettify.
-            .row-fluid
+            .row
                 .span12
                     textarea(rows="12", style="width:100%;").editor
-            .row-fluid
+            .row
                 .span12
                     #json-status
                         h3 Valid state.
-            .row-fluid
+            .row
                 .span12
                     textarea(rows="12", style="width:100%;").editor-result
         //script(id="template-json-editor", type="text/html")

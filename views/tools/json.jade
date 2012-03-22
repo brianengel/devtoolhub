@@ -1,15 +1,30 @@
-.row-fluid
-    .span12
+.row
+    .span9
         h1 Json Validator
         h6 Validate and Prettify.
 #json-content
-    .row-fluid
-        .span12
-            textarea(rows="12", style="width:100%;").editor
-    .row-fluid
-        .span12
-            #json-status
-                h3 Valid state.
-    .row-fluid
-        .span12
-            textarea(rows="12", style="width:100%;").editor-result
+    .row
+        .span9
+            form.form-inline.well
+                label.control-label(for="indent-select") 
+                    select.indent-select.span1
+                        option 0
+                        option 1
+                        option 2
+                        option 3
+                        option(selected="selected") 4
+                        option 5
+                        option 6
+                        option 7
+                        option 8
+                    Indent
+    .row
+        .span9
+            textarea(rows="12").span9.editor
+    .row
+        .span9
+            #json-status.alert
+                span Start typing to get some feedback!
+    .row
+        .span9
+            textarea(rows="12").span9.editor-result

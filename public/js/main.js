@@ -48,7 +48,8 @@ $(function() {
             "rawJson": "",
             "message": "",
             "prettifiedJson": "",
-            "indentation": 4
+            "indentation": 4,
+            "isParsed": false
         },
         initialize: function() {
 
@@ -62,15 +63,29 @@ $(function() {
                 } catch(e) {
                     result.message = e.message;
                 }
+
+                return result;
             }
 
-            this.bind("change:rawJson", function() {
+            function generateMessage() {
                 var result = parseJson(this.get("rawJson"));
-                this.set("message", result.message);
+                var isParsed = false;
+                var prettified = "";
+
                 if(typeof result.value !== "undefined") {
-                    this.set("prettifiedJson", JSON.stringify(result.value, null, 4));
+                    var indentInt = parseInt(this.get("indentation"), 10);
+                    prettified = JSON.stringify(result.value, null, indentInt);
+                    isParsed = true;
                 }
-            });
+
+                this.set("message", result.message);
+                this.set("prettifiedJson", prettified);
+                this.set("isParsed", isParsed);
+            }
+
+            this.bind("change:rawJson", generateMessage);
+            this.bind("change:indentation", generateMessage);
+            this.trigger("change:rawJson");
         }
     });
 
@@ -112,22 +127,29 @@ $(function() {
     });
 
     var JsonPrettifier = Backbone.View.extend({
+        initialize: function() {
+            this.model = new JsonModel();
+        },
         events: {
-            "keyup .editor": "prettifyResult"
+            "keyup .editor": "prettifyResult",
+            "change .indent-select": "prettifyResult"
         },
         prettifyResult: function() {
             var editorField = $(this.el).find(".editor")[0];
             var resultField = $(this.el).find(".editor-result")[0];
             var statusMessage = $(this.el).find("#json-status")[0];
+            var indentation = $(this.el).find(".indent-select").val();
 
-            try {
-                var parsedResult = jsonlint.parse(editorField.value);
-                var prettifiedResult = JSON.stringify(parsedResult, null, 4);
+            this.model.set("rawJson", editorField.value);
+            this.model.set("indentation", indentation);
 
-                resultField.value = prettifiedResult;
-                statusMessage.innerHTML = "Valid JSON.";
-            } catch(e) {
-                statusMessage.innerHTML = e.message;
+            resultField.value = this.model.get("prettifiedJson");
+            statusMessage.innerHTML = this.model.get("message");
+
+            if (this.model.get("isParsed")) {
+                $(statusMessage).removeClass("alert-error").addClass("alert-success");
+            } else {
+                $(statusMessage).removeClass("alert-success").addClass("alert-error");
             }
         },
         render: function() {
