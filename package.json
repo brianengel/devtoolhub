@@ -1,0 +1,19 @@
+{
+  "name": "devtoolhub",
+  "subdomain": "devtoolhub",
+  "domains": [
+    "devtoolhub.com",
+    "www.devtoolhub.com"
+  ],
+  "scripts": {
+    "start": "application.js"
+  },
+  "version": "0.1.0-2",
+  "engines": {
+    "node": "0.6.x"
+  },
+  "dependencies": {
+    "express": "2.5.x",
+    "jade": "0.21.0"
+  }
+}

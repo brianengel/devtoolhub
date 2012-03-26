@@ -7,7 +7,8 @@ function ToolsController() {
         var navigationLinks = navBuilder.getNavigation(req.path);
         res.render('tools/text', 
         { 
-            nav: navigationLinks
+            nav: navigationLinks,
+            title: "Text Tools"
         });
     }
 
@@ -15,7 +16,8 @@ function ToolsController() {
         var navigationLinks = navBuilder.getNavigation(req.path);
         res.render('tools/json', 
         { 
-            nav: navigationLinks
+            nav: navigationLinks,
+            title: "Json Validator"
         });
     }
 

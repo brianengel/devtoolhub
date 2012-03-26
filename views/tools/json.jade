@@ -1,30 +1,29 @@
-.row
-    .span9
+.row.header
+    .span12
         h1 Json Validator
         h6 Validate and Prettify.
 #json-content
     .row
-        .span9
-            form.form-inline.well
-                label.control-label(for="indent-select") 
-                    select.indent-select.span1
-                        option 0
-                        option 1
-                        option 2
-                        option 3
-                        option(selected="selected") 4
-                        option 5
-                        option 6
-                        option 7
-                        option 8
-                    Indent
+        .span12
+            form.horizontal
+                .control-group
+                    label.control-label(for="indent-select") Indent:
+                    select.indent-select.span2
+                        option(value=0) Single Line
+                        option(value=1) 1 Space
+                        option(value=2) 2 Spaces
+                        option(value=3) 3 Spaces
+                        option(value=4, selected="selected") 4 Spaces
+                        option(value=5) 5 Spaces
+                        option(value=6) 6 Spaces
+                        option(value=7) 7 Spaces
+                        option(value=8) 8 Spaces
     .row
-        .span9
-            textarea(rows="12").span9.editor
+        .span6
+            textarea(rows="18").span6.editor
+        .span6
+            textarea(rows="18").span6.editor-result
     .row
-        .span9
+        .span12
             #json-status.alert
                 span Start typing to get some feedback!
-    .row
-        .span9
-            textarea(rows="12").span9.editor-result

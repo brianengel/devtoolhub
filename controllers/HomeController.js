@@ -8,7 +8,8 @@ function HomeController() {
         res.render('home/index', 
         { 
             nav: navigationLinks,
-            navbar: "home"
+            navbar: "home",
+            title: "Home"
         });
     }
     
@@ -17,7 +18,8 @@ function HomeController() {
         res.render('home/about', 
         { 
             nav: navigationLinks,
-            navbar: "about"
+            navbar: "about",
+            title: "About"
         });
     }
 };
