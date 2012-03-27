@@ -143,7 +143,8 @@ $(function() {
             this.model.set("rawJson", editorField.value);
             this.model.set("indentation", indentation);
 
-            resultField.value = this.model.get("prettifiedJson");
+            resultField.innerHTML = this.model.get("prettifiedJson");
+            prettyPrint();
             statusMessage.innerHTML = this.model.get("message");
 
             if (this.model.get("isParsed")) {
