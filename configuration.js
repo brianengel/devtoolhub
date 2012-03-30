@@ -1,8 +1,18 @@
 function ConfigurationManager(application) {
 
     var express = require('express');
+    var piler = require('piler');
+    var pilerJs = piler.createJSManager();
+
+    function bundleJs() {
+        pilerJs.bind(application);
+        pilerJs.addFile(__dirname + '/public/js/jsonlint.js');
+        pilerJs.addFile(__dirname + '/public/js/mustache.js');
+        pilerJs.addFile(__dirname + '/public/js/main.js');
+    }
 
     function global() {
+        bundleJs();
         application.use(express.bodyParser());
         application.use(express.methodOverride());
         application.set('view engine', 'jade');
@@ -17,7 +27,7 @@ function ConfigurationManager(application) {
     }
     
     function production() {
-        console.log("Running development...");
+        console.log("Running production...");
         application.use(express.errorHandler());
     }
 
