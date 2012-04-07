@@ -21,6 +21,24 @@ function ToolsController() {
         });
     }
 
+    this.overflow = function(req, res, next) {
+        var navigationLinks = navBuilder.getNavigation(req.path);
+        res.render('tools/overflow',
+        {
+            nav: navigationLinks,
+            title: "Overflow"
+        });
+    }
+
+    this.map = function(req, res, next) {
+        var navigationLinks = navBuilder.getNavigation(req.path);
+        res.render('tools/map',
+        {
+            nav: navigationLinks,
+            title: "Map"
+        })
+    }
+
 
 }
 

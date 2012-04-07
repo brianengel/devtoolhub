@@ -158,6 +158,61 @@ $(function() {
         }
     });
 
+    var MapTool = Backbone.View.extend({
+        initialize: function() {
+            if(typeof this.el === "undefined") {
+                return;
+            }
+
+
+            this.model = new MapOptions({
+                mapContainer: $(this.el).find(".map")[0]
+            });
+
+            var curMap = this.model.get("map");
+            var that = this;
+
+            var centerMarker = new google.maps.Marker({
+                map: curMap,
+                icon: '/img/crosshair.gif'
+            });
+            
+            centerMarker.bindTo('position', curMap, 'center');
+
+            google.maps.event.addListener(curMap, "bounds_changed", function () {
+                that.updateLocation();
+            });
+
+            this.render();
+            
+        },
+        render: function() {
+            return this;
+        },
+        updateLocation: function() {
+            var lat = $(this.el).find(".latitude");
+            var long = $(this.el).find(".longitude");
+            var center = this.model.get("map").getCenter();
+
+            lat.text("Latitude: " + center.Xa);
+            long.text("Longitude: " + center.Ya);
+        }
+    });
+
+    var MapOptions = Backbone.Model.extend({
+        defaults: {
+            "mapOptions": {
+                  center: new google.maps.LatLng(-34.397, 150.644),
+                  zoom: 4,
+                  mapTypeId: google.maps.MapTypeId.ROADMAP
+            },
+        },
+        initialize: function() {
+            this.set("map", new google.maps.Map(this.get("mapContainer"), this.get("mapOptions")));
+        }
+    });
+
     new Editor({el: '#main-editor'});
     new JsonPrettifier({el: '#json-content'});
+    new MapTool({el: '#map-content'});
 });

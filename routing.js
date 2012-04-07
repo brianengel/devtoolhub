@@ -21,6 +21,8 @@ function registerTools(application) {
 
 	application.get('/tools/text', controller.text);
 	application.get('/tools/json', controller.json);
+    application.get('/tools/overflow', controller.overflow);
+    application.get('/tools/map', controller.map);
 }
 
 exports.Router = Router;

@@ -1,0 +1,31 @@
+.row.header
+    .span12
+        h1 Overflow
+        h6 Find what fits.
+#overflow-content
+    .row
+        .span12
+            form.horizontal
+                .control-group
+                    label.control-label(for="overflow-font") Font:
+                    select#overflow-font.span3
+                        option(value=0) Single Line
+                        option(value=1) 1 Space
+                        option(value=2) 2 Spaces
+                        option(value=3) 3 Spaces
+                        option(value=4, selected="selected") 4 Spaces
+                        option(value=5) 5 Spaces
+                        option(value=6) 6 Spaces
+                        option(value=7) 7 Spaces
+                        option(value=8) 8 Spaces
+                .control-group
+                    label.control-label(for="overflow-width") Width:
+                    input#overflow-width.span1
+    .row
+        .span12
+            .overflow-area
+                span inner
+    .row
+        .span12
+            .status.alert.alert-info
+                span Info box.
