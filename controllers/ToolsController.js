@@ -8,7 +8,9 @@ function ToolsController() {
         res.render('tools/text', 
         { 
             nav: navigationLinks,
-            title: "Text Tools"
+            title: "Text Tools",
+            description: "A great way to pick up basic stats and information about a " +
+                "block of text."
         });
     }
 
@@ -17,7 +19,10 @@ function ToolsController() {
         res.render('tools/json', 
         { 
             nav: navigationLinks,
-            title: "Json Validator"
+            title: "Json Validator",
+            description: "Every web developer needs to validate and prettify some JSON at " +
+                "some point. I wasn't happy with the solutions out there, so I made one with " +
+                "immediate feed back, syntax highlighting and spacing options."
         });
     }
 
@@ -35,7 +40,10 @@ function ToolsController() {
         res.render('tools/map',
         {
             nav: navigationLinks,
-            title: "Map"
+            title: "Map",
+            description: "Does it drive anyone else mad that its hard to find coordinates on " + 
+                "google maps? Yeah, me too. This site strives to fix that and aff other " +
+                "awesome quick and useful features."
         })
     }
 

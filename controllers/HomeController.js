@@ -9,7 +9,10 @@ function HomeController() {
         { 
             nav: navigationLinks,
             navbar: "home",
-            title: "Home"
+            title: "Home",
+            description: "A great collection of software developer oriented tools that are " + 
+                "designed to easy to use and provide immediate feedback. You might call it... " +
+                "a tool hub? For developers?"
         });
     }
     
@@ -19,7 +22,9 @@ function HomeController() {
         { 
             nav: navigationLinks,
             navbar: "about",
-            title: "About"
+            title: "About",
+            description: "A bit of background on why I decided to create this and some of the " +
+                "technologies used."
         });
     }
 };

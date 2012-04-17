@@ -194,8 +194,8 @@ $(function() {
             var long = $(this.el).find(".longitude");
             var center = this.model.get("map").getCenter();
 
-            lat.text("Latitude: " + center.Xa);
-            long.text("Longitude: " + center.Ya);
+            lat.text("Latitude: " + center.lat());
+            long.text("Longitude: " + center.lng());
         }
     });
 
