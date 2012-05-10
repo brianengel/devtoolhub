@@ -81,15 +81,29 @@ form.horizontal > .control-group {
 /* Map Section */
 
 .center-title > h3 {
-  text-align: center;
+    text-align: center;
 }
 
-.map {
-  width: 100%;
-  height: 440px;
+#map-content .map {
+    width: 100%;
+    height: 440px;
 }
 
 /* Fix for issue between google maps and twitter bootstrap */
-.map img {
-  max-width: none;
+#map-content .map img {
+    max-width: none;
 }
+
+#map-content .crosshair {
+    width: 19px;
+    height: 19px;
+    background: url(/img/crosshair.gif);
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 50%;
+    top: 325px;
+    margin-left: -10px;
+}
+
+

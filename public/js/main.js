@@ -172,12 +172,12 @@ $(function() {
             var curMap = this.model.get("map");
             var that = this;
 
-            var centerMarker = new google.maps.Marker({
-                map: curMap,
-                icon: '/img/crosshair.gif'
-            });
+            //var centerMarker = new google.maps.Marker({
+            //    map: curMap,
+            //    icon: '/img/crosshair.gif'
+            //});
             
-            centerMarker.bindTo('position', curMap, 'center');
+            //centerMarker.bindTo('position', curMap, 'center');
 
             google.maps.event.addListener(curMap, "bounds_changed", function () {
                 that.updateLocation();
